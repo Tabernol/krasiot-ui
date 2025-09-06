@@ -194,12 +194,13 @@ function App(appProps: AppProps) {
                     <Route exact path={[Routes.ABOUT1,Routes.ABOUT2]} render={(props )=> <About {...appProps}/>}/>
                     <PrivateRoute
                         path={[Routes.ACCOUNT]}
-                        {...{
-                            authenticated: appProps.authenticated,
-                            authenticationPath: Routes.LOGIN,
-                            redirectPathOnAuthentication: Routes.ACCOUNT
-                        }} exact={true}
-                        render={(props) => <Account/>}/>
+                        exact
+                        authenticated={appProps.authenticated}
+                        authenticationPath={Routes.LOGIN}
+                        redirectPathOnAuthentication={Routes.ACCOUNT}
+                    >
+                        <Account />
+                    </PrivateRoute>
 
                     <Route path={Routes.LOGIN}
                            render={(props) => appProps.authenticated ? <Redirect to={Routes.ACCOUNT}/> :// @ts-ignore

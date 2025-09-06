@@ -1,24 +1,26 @@
-import React from 'react';
-import {Redirect, Route} from "react-router-dom";
-import {RouteProps, useLocation} from 'react-router';
 
+import React from "react";
+import { Redirect, Route, RouteProps, useLocation } from "react-router-dom";
 
-export const PrivateRoute: React.FC<ProtectedRouteProps> = props => {
-    const currentLocation = useLocation();
-    let redirectPath = props.redirectPathOnAuthentication;
-    if (!props.authenticated) {
-        redirectPath = props.authenticationPath;
-    }
-    if (redirectPath !== currentLocation.pathname) {
-        const renderComponent = () => <Redirect to={{pathname: redirectPath}}/>;
-        return <Route {...props} component={renderComponent} render={undefined}/>;
-    } else {
-        return <Route {...props} />;
-    }
-};
-
-export interface ProtectedRouteProps extends RouteProps {
+export interface ProtectedRouteProps
+    extends Omit<RouteProps, "component" | "render" | "children"> {
     authenticated: boolean;
     authenticationPath: string;
     redirectPathOnAuthentication: string;
+    children?: React.ReactNode;
+}
+
+export function PrivateRoute(props: ProtectedRouteProps) {
+    const { authenticated, authenticationPath, redirectPathOnAuthentication, ...rest } = props;
+    const currentLocation = useLocation();
+
+    const redirectPath = authenticated
+        ? redirectPathOnAuthentication
+        : authenticationPath;
+
+    if (redirectPath !== currentLocation.pathname) {
+        return <Route {...rest} render={() => <Redirect to={{ pathname: redirectPath }} />} />;
+    }
+
+    return <Route {...rest} />;
 }

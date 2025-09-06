@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import './About.css'
 import {MDBTypography} from "mdbreact";
 import {Link} from 'react-router-dom';
@@ -26,9 +26,10 @@ function About(appProps: AppProps) {
                     <Trans
                         i18nKey="ns1:supportedFunctionalitiesParagraph"
                         components={{
-                            loginLink: <Link to={Routes.LOGIN}/>,
-                            signUpLink: <Link to={Routes.SIGNUP}/>
-                        }}/>
+                            loginLink: <Link to={Routes.LOGIN} />,
+                            signUpLink: <Link to={Routes.SIGNUP} />,
+                        } as Record<string, React.ReactElement>}
+                    />
                 </p>
                 <p>{t('ns1:supportedFunctionalitiesListHeading', {})}</p>
                 <ul>
@@ -48,23 +49,25 @@ function About(appProps: AppProps) {
             <div className="divider"/>
             <section id="react">
                 <h2 className="h2-responsive color-primary bold mb-4">React</h2>
-                <Trans className="text-long"
-                    i18nKey="ns1:reactParagraph"
+
+                <Trans
+                    i18nKey="ns1:supportedFunctionalitiesParagraph"
                     components={{
-                        githubLink: <a href="https://github.com/Hasatori/full-stack-template-frontend-react" target="_blank"/>,
-                        p: <p className="text-long"/>
-                    }}/>
+                        loginLink: <Link to={Routes.LOGIN} />,
+                        signUpLink: <Link to={Routes.SIGNUP} />,
+                    } as Record<string, React.ReactElement>}
+                />
             </section>
             <div className="divider"/>
             <section id='spring-boot'>
                 <h2 className="h2-responsive color-primary bold mb-4">Spring boot</h2>
-                <Trans className="text-long"
-                    i18nKey="ns1:springBootParagraph"
+                <Trans
+                    i18nKey="ns1:supportedFunctionalitiesParagraph"
                     components={{
-                        githubLink: <a href="https://github.com/Hasatori/full-stack-template-backend-spring" target="_blank"/>,
-                        p: <p className="text-long"/>
-                    }}/>
-
+                        loginLink: <Link to={Routes.LOGIN} />,
+                        signUpLink: <Link to={Routes.SIGNUP} />,
+                    } as Record<string, React.ReactElement>}
+                />
             </section>
         </section>
 
