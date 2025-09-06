@@ -1,20 +1,17 @@
 import i18n from 'i18next';
 import en from './en/translation.json';
-import cs from './cs/translation.json';
 import ua from './ua/translation.json';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import english_flag from "../assets/images/flags/united-kingdom.svg";
-import cs_flag from "../assets/images/flags/czech-republic.svg";
 import ua_flag from "../assets/images/flags/ukraine.svg"; // ⬅️ new
 
 export const resources = {
     en: {ns1: en,},
-    cs: {ns1: cs,},
     ua: {ns1: ua,}
 } as const;
 
-export const SUPPORTED_LANGUAGES = ['en','cs', 'ua'];
+export const SUPPORTED_LANGUAGES = ['en', 'ua'];
 
 export function getLanguageFlagPairFromLocale(locale: string) {
     switch (locale) {
@@ -23,8 +20,6 @@ export function getLanguageFlagPairFromLocale(locale: string) {
             return [ua_flag, 'українська'];
         case 'en':
             return [english_flag, 'english'];
-        case 'cs':
-            return [cs_flag, 'čeština'];
         default:
             return [english_flag, 'english'];
     }
@@ -33,7 +28,7 @@ export function getLanguageFlagPairFromLocale(locale: string) {
 i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng: ['en', 'cs', 'ua'],
+        fallbackLng: ['en', 'ua'],
         debug: true,
         interpolation: {
             escapeValue: false,
