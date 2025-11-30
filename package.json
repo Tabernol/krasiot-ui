@@ -77,10 +77,6 @@
       "last 1 safari version"
     ]
   },
-  "resolutions": {
-    "@types/react": "16.14.39",
-    "@types/react-dom": "16.9.14"
-  },
   "overrides": {
     "@types/react": "16.14.39",
     "@types/react-dom": "16.9.14"
