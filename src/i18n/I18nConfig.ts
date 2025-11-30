@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import en from './en/translation.json';
-import ua from './ua/translation.json';
+import ua from './uk/translation.json';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import english_flag from "../assets/images/flags/united-kingdom.svg";
