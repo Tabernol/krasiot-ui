@@ -1,4 +1,4 @@
-name: Build and deploy (Yarn) to GitHub Pages
+name: Build and deploy to GitHub Pages
 
 on:
   push:
@@ -19,35 +19,37 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
-      - name: Cache yarn cache
+      - name: Cache npm
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.cache/yarn
-            **/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-npm-
 
-      - name: Install dependencies (yarn)
-        run: yarn --frozen-lockfile
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./build
+          path: ./dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       pages: write
       id-token: write
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
