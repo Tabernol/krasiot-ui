@@ -73,11 +73,13 @@
   "newPasswordRequested": "Новий пароль запитано",
   "loggingInWithProvider": "Вхід через {{providerName}}",
   "signingUpWithProvider": "Реєстрація через {{providerName}}",
-  "whatIsFullStackTemplateHeading": "Що таке Full-stack template?",
-  "whatIsFullStackTemplateParagraph": "Full-stack template — це шаблон на базі Spring/React, що надає набір функцій, потрібних для будь-якого веб-додатка.",
-  "supportedFunctionalitiesHeading": "Підтримувані функції",
-  "supportedFunctionalitiesParagraph": "Шаблон підтримує базові функції, потрібні майже для кожного веб-застосунку. Ви можете спробувати їх у цьому додатку. Можна <loginLink>увійти</loginLink> за допомогою Facebook, Google або GitHub, або <signUpLink>зареєструватися</signUpLink> і увійти за e-mail та паролем.",
-  "supportedFunctionalitiesListHeading": "Підтримуються такі функції",
-  "reactParagraph": "<p>Фронтенд написаний на React — популярному фреймворку для створення SPA. Повністю інтегрований з <strong>TypeScript</strong> та <strong>Redux</strong>. Також підтримує <strong>локалізацію</strong> і <strong>темну/світлу тему</strong>.<br/><br/>Докладніше про цю частину та вихідні коди — на <githubLink>Github</githubLink></p>",
-  "springBootParagraph": "<p>Backend REST API написаний на Spring із використанням Spring Boot. Застосовує подвійний механізм автентифікації на основі <strong>JWT</strong>, підтримує <strong>локалізацію</strong> та <strong>надсилання електронних листів</strong>.<br/><br/>Докладніше та вихідні коди — на <githubLink>Github</githubLink></p>"
+  "whatIsKrasiotHeading": "Що таке Krasiot?",
+  "whatIsKrasiotParagraph": "Krasiot — це IoT-платформа для моніторингу та управління аграрними процесами. Вона дозволяє фермерам збирати дані з сенсорів, відстежувати умови навколишнього середовища та приймати рішення на основі даних.",
+  "iotInAgricultureHeading": "IoT в сільському господарстві",
+  "iotInAgricultureParagraph": "Інтернет речей революціонізує сучасне сільське господарство. Розумні сенсори можуть відстежувати вологість ґрунту, температуру, вологість повітря та інші критичні параметри в реальному часі. Ці дані допомагають оптимізувати зрошення, зменшити витрати ресурсів та збільшити врожайність.",
+  "featuresHeading": "Можливості",
+  "featureSensorMonitoring": "Моніторинг сенсорів у реальному часі",
+  "featureRealTimeData": "Візуалізація даних наживо",
+  "featureAlerts": "Налаштовувані сповіщення",
+  "featureAnalytics": "Аналітика історичних даних"
 }

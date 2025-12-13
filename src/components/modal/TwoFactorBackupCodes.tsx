@@ -47,7 +47,7 @@ export function TwoFactorBackupCodes(modalProps: ModalProps) {
                                 let link = document.createElement("a");
                                 const data = new Blob([codesString], {type: 'text/plain'});
                                 link.href = URL.createObjectURL(data);
-                                link.download = `full-stack-template_${modalProps.email}_backup_codes`;
+                                link.download = `krasiot_${modalProps.email}_backup_codes`;
                                 link.click();
                                 URL.revokeObjectURL(link.href);
                             }}
