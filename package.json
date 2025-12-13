@@ -1,85 +1,39 @@
 {
   "name": "krasiot-ui",
-  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@react-hook/media-query": "^1.1.1",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@types/node": "^14.14.6",
-    "@types/react": "^16.14.39",
-    "@types/react-alert": "^5.2.0",
-    "@types/react-dom": "^16.9.14",
-    "@types/react-router-dom": "^5.1.6",
-    "axios": "^0.21.0",
-    "font-awesome": "^4.7.0",
-    "g": "^2.0.1",
-    "i18n": "^0.13.2",
-    "i18next": "^19.8.4",
-    "i18next-browser-languagedetector": "^6.0.1",
-    "js-cookie": "^2.2.1",
-    "mdbreact": "^4.27.0",
-    "my-ui-lib": "^1.2.2",
-    "react": "16.14.0",
-    "react-cookie": "^4.0.3",
-    "react-cookie-consent": "^5.2.0",
-    "react-copy-to-clipboard": "^5.0.2",
-    "react-dark-mode-toggle": "^0.2.0",
-    "react-device-detect": "^1.14.0",
-    "react-dom": "16.14.0",
-    "react-i18next": "^11.8.4",
-    "react-loading-overlay": "^1.0.1",
-    "react-overlay-loader": "0.0.3",
-    "react-redux": "^7.2.9",
-    "react-router-dom": "^5.2.0",
-    "react-s-alert": "^1.4.1",
-    "react-scripts": "5.0.1",
-    "react-scrollspy": "^3.4.3",
-    "react-social-icons": "^5.6.1",
-    "react-spinners": "^0.9.0",
-    "react-toastify": "^6.1.0",
-    "reactjs-popup": "^2.0.4",
-    "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "sass": "^1.92.0",
-    "typescript": "4.9.5"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@tanstack/react-query": "^5.90.12",
+    "antd": "^6.1.0",
+    "axios": "^1.13.2",
+    "i18next": "^25.7.2",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-i18next": "^16.5.0",
+    "react-router-dom": "^7.10.1",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.2",
-    "@types/js-cookie": "^2.2.6",
-    "@types/react-copy-to-clipboard": "^4.3.0",
-    "@types/react-redux": "^7.1.11",
-    "@types/react-s-alert": "^1.3.2",
-    "@types/react-scrollspy": "^3.3.4",
-    "@types/jest": "^27.5.2",
-    "eslint-plugin-react-hooks": "^4.2.0"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "resolutions": {
-    "@types/react": "16.14.66",
-    "@types/react-dom": "16.9.25"
-  },
-  "overrides": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4"
   }
 }
