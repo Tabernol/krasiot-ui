@@ -19,7 +19,7 @@ apiClient.interceptors.request.use((config) => {
 });
 
 // Auth endpoints that should not trigger auto-logout on 401
-const AUTH_ENDPOINTS = ['/api/auth/login', '/api/auth/register', '/api/auth/refresh'];
+const AUTH_ENDPOINTS = ['/auth/v1/login', '/auth/v1/register', '/auth/v1/refresh'];
 
 apiClient.interceptors.response.use(
   (response) => response,
@@ -36,7 +36,7 @@ apiClient.interceptors.response.use(
       const tokens = useAppStore.getState().tokens;
       if (tokens?.refreshToken) {
         try {
-          const response = await axios.post(`${API_URL}/api/auth/refresh`, {
+          const response = await axios.post(`${API_URL}/auth/v1/refresh`, {
             refresh_token: tokens.refreshToken,
           });
 
