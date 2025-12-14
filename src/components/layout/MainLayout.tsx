@@ -1,4 +1,4 @@
-import { Layout, Menu, Switch, Dropdown, Button } from 'antd';
+import { Layout, Menu, Switch, Dropdown, Button, message } from 'antd';
 import {
   HomeOutlined,
   LoginOutlined,
@@ -6,16 +6,32 @@ import {
   LogoutOutlined,
   GlobalOutlined
 } from '@ant-design/icons';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppStore } from '../../store/useAppStore';
+import { authApi } from '../../api/auth';
 
 const { Header, Content, Footer } = Layout;
 
 export function MainLayout() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const { theme, setTheme, isAuthenticated, user, logout } = useAppStore();
+  const navigate = useNavigate();
+  const { theme, setTheme, isAuthenticated, user, tokens, logout } = useAppStore();
+
+  const handleLogout = async () => {
+    try {
+      if (tokens?.refreshToken) {
+        await authApi.logout({ refresh_token: tokens.refreshToken });
+      }
+    } catch {
+      // Ignore logout API errors
+    } finally {
+      logout();
+      message.success(t('logoutLabel'));
+      navigate('/login');
+    }
+  };
 
   const menuItems = [
     { key: '/', icon: <HomeOutlined />, label: <Link to="/">{t('aboutAppLabel')}</Link> },
@@ -30,10 +46,12 @@ export function MainLayout() {
 
   const userMenu = {
     items: [
-      { key: 'profile', icon: <UserOutlined />, label: t('profileHeading') },
-      { key: 'logout', icon: <LogoutOutlined />, label: t('logoutLabel'), onClick: logout },
+      { key: 'profile', icon: <UserOutlined />, label: t('profileHeading'), onClick: () => navigate('/profile') },
+      { key: 'logout', icon: <LogoutOutlined />, label: t('logoutLabel'), onClick: handleLogout },
     ],
   };
+
+  const displayName = user?.firstname || user?.email || '';
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -72,7 +90,7 @@ export function MainLayout() {
           {isAuthenticated ? (
             <Dropdown menu={userMenu}>
               <Button icon={<UserOutlined />} type="text">
-                {user?.name}
+                {displayName}
               </Button>
             </Dropdown>
           ) : (
